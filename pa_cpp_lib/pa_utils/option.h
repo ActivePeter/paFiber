@@ -32,6 +32,10 @@ namespace pa_utils{
             return is_null_;
         }
         T& ref(){
+            if(_fiber_global_ctx.is_null()){
+                printf("_fiber_global_ctx.is_null()");
+                abort();
+            }
             return *(T*)data_;
         }
     private:
